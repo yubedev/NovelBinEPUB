@@ -1,12 +1,16 @@
 import { generateEPUB } from './epub-generator.js';
 import { indent, println } from './utils.js';
 
-
-
 let data = null;
 
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+  if (!tab.url.includes('novelbin.com')) {
+    alert("This extension only works on novelbin.com");
+    return;
+  }
+  
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     files: ['content.js']
