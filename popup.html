@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NovelBin EPUB</title>
+  <style>
+    body { font-family: sans-serif; width: 300px; padding: 10px; }
+    img { max-width: 70%; margin: 5px 0; }
+    button { width: 100%; margin: 5px 0; padding: 8px; }
+    #log { font-size: 1em; height: 60px; overflow: auto; border: 1px solid #ccc; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h2 id="title">Loading…</h2>
+  <img id="cover" src="" alt="Cover">
+  <p id="chapters">Chapters: 0</p>
+  <button id="saveBtn" disabled>Save as EPUB</button>
+  <pre id="log"></pre>
+
+  <script type="text/javascript" src="jszip.min.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

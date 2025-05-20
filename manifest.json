@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "NovelBin EPUB",
+    "version": "1.0",
+    "description": "Scrape NovelBin novels and save as EPUB",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "downloads"
+    ],
+    "host_permissions": ["https://novelbin.com/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    }
+  }
