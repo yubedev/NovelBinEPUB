@@ -8,7 +8,7 @@ export async function generateEPUB({ title, coverBuffer, author, description, ch
 
   // META-INF/container.xml
   zip.folder('META-INF').file('container.xml', 
-`<?xml version="1.0" encoding="UTF-8"?>'
+`<?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0">
   <rootfiles>
     <rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/>
