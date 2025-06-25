@@ -24,7 +24,7 @@ let data = null;
       data = res;
       document.getElementById('title').textContent = res.title;
       document.getElementById('cover').src = res.cover;
-      document.getElementById('chapters').textContent = `Chapters: ${res.chapters.length}`;
+      document.getElementById('chapterCount').textContent = `Chapters: ${res.chapters.length}`;
       document.getElementById('saveBtn').disabled = false;
       println('Metadata loaded.');
     });
