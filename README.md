@@ -1,4 +1,7 @@
 Chrome extension to download novel from site novelbin.com as epub file.
+
+[Telegram group](https://t.me/novelbinepub)
+
 1) Download included files as ZIP
 2) Extract .zip file
 3) Go to Chrome extensions: chrome://extensions/
