@@ -1,4 +1,4 @@
-Chrome extension to download novel from site novelbin.com as epub file.\
+Chrome extension to download novel from site [novelbin.com](novelbin.com) as epub file.\
 [Telegram group](https://t.me/novelbinepub)
 
 # How to load extension in chrome
