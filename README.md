@@ -2,7 +2,7 @@ Chrome extension to download novel from site [novelbin.com](https://novelbin.com
 [Telegram group](https://t.me/novelbinepub)
 
 # How to load extension in chrome
-1) Download included files as ZIP
+1) [Download](https://github.com/yubedev/NovelBinEPUB/archive/refs/heads/main.zip) included files as ZIP
 2) Extract .zip file
 3) Go to Chrome extensions: chrome://extensions/
 4) Enable "Developer mode" (top right corner)
