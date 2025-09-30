@@ -1,13 +1,13 @@
 import { generateEPUB } from './epub-generator.js';
-import { indent, println } from './utils.js';
+import { indent, logprint, logprintln } from './utils.js';
 
 let data = null;
 
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-  if (!tab.url.includes('novelbin.com')) {
-    alert("This extension only works on novelbin.com");
+  if (!tab.url.includes('novelbin.com') && !tab.url.includes('novelbin.me')) {
+    alert("This extension only works on novelbin site");
     return;
   }
   
@@ -18,7 +18,7 @@ let data = null;
     chrome.tabs.sendMessage(tab.id, { type: 'GET_META' }, (res) => {
       if (chrome.runtime.lastError || !res) {
         document.getElementById('title').textContent = 'Error fetching data';
-        println(chrome.runtime.lastError?.message || 'No response');
+        logprintln(chrome.runtime.lastError?.message || 'No response');
         return;
       }
       data = res;
@@ -26,16 +26,21 @@ let data = null;
       document.getElementById('cover').src = res.cover;
       document.getElementById('chapterCount').textContent = `Chapters: ${res.chapters.length}`;
       document.getElementById('saveBtn').disabled = false;
-      println('Metadata loaded.');
+      logprintln('Metadata loaded.');
     });
   });
 })();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const manifest = chrome.runtime.getManifest();
+  const version = manifest.version;
+  document.getElementById("version").textContent = `v${version}`;
+});
 
 document.getElementById('saveBtn').addEventListener('click', async () => {
   if (!data) return;
   document.getElementById('saveBtn').disabled = true;
-  println('Fetching chapters…');
+  logprintln('Fetching chapters…');
 
   const coverResponse = await fetch(data.cover);
   const coverBlob = await coverResponse.blob();
@@ -44,16 +49,16 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
   const chapters = [];
   for (let i = 0; i < data.chapters.length; i++) {
     const {url, title} = data.chapters[i];
-    println(`→ Chapter ${i + 1}/${data.chapters.length}`);
+    logprintln(`→ Chapter ${i + 1}/${data.chapters.length}`);
 
     while (true) {
       try {
         const html = await fetch(url).then(r => r.text());
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
-        const paragraphs = doc.querySelectorAll('#chr-content > p');
+        const paragraphs = doc.querySelectorAll('#chr-content p');
+
         if (paragraphs.length == 0) {
-          print(".")
           await new Promise(resolve => setTimeout(resolve, 500));
           continue;
         }
@@ -62,13 +67,13 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
         break;
 
       } catch (e) {
-        println(`! Failed to fetch: ${e.message}`);
+        logprintln(`! Failed to fetch: ${e.message}`);
       }
       
     }
   }
 
-  println('Generating EPUB…');
+  logprintln('Generating EPUB…');
   try {
     await generateEPUB({
       title: data.title,
@@ -77,8 +82,7 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
       description: data.description,
       chapters
     });
-    println('Download started.');
   } catch (e) {
-    println(`! EPUB error: ${e.message}`);
+    logprintln(`! EPUB error: ${e.message}`);
   }
 });

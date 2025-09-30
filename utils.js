@@ -3,14 +3,21 @@ export function indent(lines, level) {
     return lines.map(line => indentStr + line).join('\n');
 }
 
-export function println(msg) {
+export function logprintln(msg) {
     const div = document.getElementById('log');
-    div.textContent += msg + '\n';
+    const line = document.createElement("div");
+    line.textContent = msg;
+    div.appendChild(line);
     div.scrollTop = div.scrollHeight;
 }
 
-export function print(msg) {
+export function logprint(msg) {
     const div = document.getElementById('log');
-    div.textContent += msg;
+    let lastLine = div.lastChild;
+    if (!lastLine) {
+        lastLine = document.createElement("div");
+        div.appendChild(lastLine);
+    }
+    lastLine.textContent += msg;
     div.scrollTop = div.scrollHeight;
 }

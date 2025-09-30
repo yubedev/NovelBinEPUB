@@ -7,17 +7,40 @@
     body { font-family: sans-serif; width: 300px; padding: 10px; }
     img { max-width: 70%; margin: 5px 0; }
     button { width: 100%; margin: 5px 0; padding: 8px; }
-    #log { font-size: 1em; height: 60px; overflow: auto; border: 1px solid #ccc; padding: 5px; }
+    #log {
+      font-size: 1em;
+      height: 60px;
+      overflow: auto;
+      border: 1px solid #ccc;
+      padding: 5px;
+
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #chapters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #version {
+      font-size: 0.8em;
+      color: #666;
+    }
   </style>
 </head>
 <body>
   <h2 id="title">Loading…</h2>
   <img id="cover" src="" alt="Cover">
   <p id="chapters">
-    <span id="chapterCount">Chapters: 0</span>
-    <a id="link" href="https://t.me/novelbinepub" target="_blank" style="margin-left: 10px; font-size: 0.9em;">
-      https://t.me/novelbinepub
-    </a>
+    <span>
+      <span id="chapterCount">Chapters: 0</span>
+      <a id="link" href="https://t.me/novelbinepub" target="_blank" style="margin-left: 10px; font-size: 0.9em;">
+        https://t.me/novelbinepub
+      </a>
+    </span>
+    <span id="version"></span>
   </p>
   <button id="saveBtn" disabled>Save as EPUB</button>
   <pre id="log"></pre>
