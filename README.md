@@ -10,7 +10,7 @@ Chrome extension to download novel from site [novelbin.com](https://novelbin.com
 ![Load extension](img/load_extension.jpg)
 
 # Usage
-After extension successfully installed go to novelbin.com novel page, and open Chapter List. 
+After extension successfully installed go to **novelbin** novel page, and open Chapter List. 
 Next, open installed extension from extension shortcut panel and hit "Save as EPUB". 
 Wait until all chapters downloaded before getting promt to save file.
 ![Example](img/example.png)
