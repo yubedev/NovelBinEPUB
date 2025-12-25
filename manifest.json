@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "NovelBin EPUB",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Scrape NovelBin novels and save as EPUB",
     "permissions": [
       "activeTab",
