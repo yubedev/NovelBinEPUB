@@ -117,7 +117,8 @@ ${chapter.body}
 
   const blob = await zip.generateAsync({
     type: 'blob',
-    mimeType: 'application/epub+zip'
+    mimeType: 'application/epub+zip',
+    compression: 'DEFLATE'
   });
 
   const url = URL.createObjectURL(blob);
