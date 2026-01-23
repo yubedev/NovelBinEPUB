@@ -1,14 +1,14 @@
 {
     "manifest_version": 3,
     "name": "NovelBin EPUB",
-    "version": "1.2",
+    "version": "1.3",
     "description": "Scrape NovelBin novels and save as EPUB",
     "permissions": [
       "activeTab",
       "scripting",
       "downloads"
     ],
-    "host_permissions": ["https://novelbin.com/*", "https://novelbin.me/*"],
+    "host_permissions": ["https://*.novelbin.com/*", "https://*.novelbin.me/*"],
     "content_scripts": [
     {
       "matches": ["https://novelbin.com/*", "https://novelbin.me/*"],
