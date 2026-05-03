@@ -15,5 +15,11 @@ Next, open installed extension from extension shortcut panel and hit "Save as EP
 Wait until all chapters downloaded before getting promt to save file.
 ![Example](img/example.png)
 
+# Kiwi Browser (For Android devices)
+You can also use this plugin on Android with [Kiwi Browser](https://github.com/kiwibrowser/src.next). 
+For this you just have to download .zip and in Kiwi add extension with "+ (from .zip/.crx/.user.js)".
+After that navigate to novelbin novel page, open Chapter List and open installed extension.
+![Example](img/kiwi_example.png)
+
 > [!WARNING]
 > Do not close extension window while downloading or process will be aborted.
